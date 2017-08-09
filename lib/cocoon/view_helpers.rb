@@ -132,13 +132,13 @@ module Cocoon
         assoc_obj = nil
 
         # assume ActiveRecord or compatible
-        if instance.collection?
+        # if instance.collection?
           assoc_obj = f.object.send(association).build
           f.object.send(association).delete(assoc_obj)
-        else
-          assoc_obj = f.object.send("build_#{association}")
-          f.object.send(association).delete
-        end
+        # else
+        #   assoc_obj = f.object.send("build_#{association}")
+        #   f.object.send(association).delete
+        # end
 
         assoc_obj = assoc_obj.dup if assoc_obj.frozen?
 
